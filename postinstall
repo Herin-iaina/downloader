@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Définir les permissions pour les scripts
+chmod 755 "/usr/local/bin/macos_downloader.sh"
+chmod 755 "/usr/local/bin/macosdownloader"
+
+# Créer le lien symbolique si nécessaire
+if [ ! -L "/usr/local/bin/macosdownloader" ]; then
+    ln -sf "/usr/local/bin/macos_downloader.sh" "/usr/local/bin/macosdownloader"
+fi
+
+exit 0 

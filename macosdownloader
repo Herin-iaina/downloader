@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Chemin vers le script principal
+SCRIPT_PATH="/usr/local/bin/macos_downloader.sh"
+
+# Fonction pour afficher l'aide
+show_help() {
+    echo "Usage: macosdownloader [command]"
+    echo ""
+    echo "Commands:"
+    echo "  start       Démarrer le téléchargement"
+    echo "  --uninstall Désinstaller l'application"
+    echo "  --help      Afficher cette aide"
+}
+
+# Vérifier si le script existe
+if [ ! -f "$SCRIPT_PATH" ]; then
+    echo "Erreur: L'application n'est pas installée correctement."
+    exit 1
+fi
+
+# Traiter les arguments
+case "$1" in
+    "start")
+        sudo "$SCRIPT_PATH"
+        ;;
+    "--uninstall")
+        echo "Désinstallation de macOS Downloader..."
+        sudo rm -f "$SCRIPT_PATH"
+        sudo rm -f "/usr/local/bin/macosdownloader"
+        echo "Désinstallation terminée."
+        ;;
+    "--help"|"")
+        show_help
+        ;;
+    *)
+        echo "Commande inconnue: $1"
+        show_help
+        exit 1
+        ;;
+esac 

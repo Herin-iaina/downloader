@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>macOS Downloader Package</string>
+            <key>CFBundleTypeRole</key>
+            <string>Viewer</string>
+            <key>LSHandlerRank</key>
+            <string>Owner</string>
+        </dict>
+    </array>
+    <key>ProjectFormatVersion</key>
+    <string>1.7</string>
+    <key>ProjectName</key>
+    <string>macOS Downloader</string>
+    <key>ProjectType</key>
+    <string>com.apple.package-project</string>
+    <key>ProjectVersion</key>
+    <string>1.0</string>
+    <key>Targets</key>
+    <array>
+        <dict>
+            <key>BuildSettings</key>
+            <dict>
+                <key>IFPkgFlagAllowBackRev</key>
+                <false/>
+                <key>IFPkgFlagAuthorizationAction</key>
+                <string>RootAuthorization</string>
+                <key>IFPkgFlagDefaultLocation</key>
+                <string>/usr/local/bin</string>
+                <key>IFPkgFlagInstallFat</key>
+                <false/>
+                <key>IFPkgFlagIsRequired</key>
+                <true/>
+                <key>IFPkgFlagOverwritePermissions</key>
+                <false/>
+                <key>IFPkgFlagRelocatable</key>
+                <false/>
+                <key>IFPkgFlagRestartAction</key>
+                <string>NoRestart</string>
+                <key>IFPkgFlagRootVolumeOnly</key>
+                <true/>
+                <key>IFPkgFlagUpdateInstalledLanguages</key>
+                <false/>
+                <key>IFPkgFormatVersion</key>
+                <string>0.100</string>
+            </dict>
+            <key>Name</key>
+            <string>macOS Downloader</string>
+            <key>Product</key>
+            <dict>
+                <key>IFPkgFlagPackageLocation</key>
+                <string>macos_downloader.pkg</string>
+                <key>IFPkgFlagPackageSelection</key>
+                <string>required</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist> 
