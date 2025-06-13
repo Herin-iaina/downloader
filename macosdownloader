@@ -2,6 +2,7 @@
 
 # Chemin vers le script principal
 SCRIPT_PATH="/usr/local/bin/macos_downloader.sh"
+LOG_FILE="/var/log/macos_downloader.log"
 
 # Fonction pour afficher l'aide
 show_help() {
@@ -9,6 +10,7 @@ show_help() {
     echo ""
     echo "Commands:"
     echo "  start       Démarrer le téléchargement"
+    echo "  --detach    Démarrer le téléchargement en arrière-plan"
     echo "  --uninstall Désinstaller l'application"
     echo "  --help      Afficher cette aide"
 }
@@ -23,6 +25,11 @@ fi
 case "$1" in
     "start")
         sudo "$SCRIPT_PATH"
+        ;;
+    "--detach")
+        echo "Démarrage du téléchargement en arrière-plan..."
+        sudo nohup "$SCRIPT_PATH" > "$LOG_FILE" 2>&1 &
+        echo "Le processus a été démarré en arrière-plan. Les logs sont disponibles dans $LOG_FILE"
         ;;
     "--uninstall")
         echo "Désinstallation de macOS Downloader..."

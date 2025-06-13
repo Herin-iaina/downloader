@@ -37,6 +37,13 @@ macOS Downloader est un outil qui permet de télécharger et d'installer automat
 macosdownloader start
 ```
 
+### Lancer le téléchargement en arrière-plan
+
+```bash
+macosdownloader --detach
+```
+Cette commande exécute le téléchargement en arrière-plan et continue même si la connexion est interrompue. Les logs sont disponibles dans `/var/log/macos_downloader.log`.
+
 ### Désinstaller l'application
 
 ```bash
@@ -68,7 +75,7 @@ Pour déployer et exécuter automatiquement sur plusieurs machines :
    ```bash
    #!/bin/bash
    installer -pkg /chemin/vers/macos_downloader.pkg -target /
-   /usr/local/bin/macosdownloader start
+   /usr/local/bin/macosdownloader --detach
    ```
 
 2. Dans ARD, utilisez la fonction "Exécuter une commande" pour lancer le script
@@ -82,7 +89,7 @@ ls -l /usr/local/bin/macosdownloader
 
 Pour vérifier les logs :
 ```bash
-cat /var/tmp/macos_installer_client.log
+cat /var/log/macos_downloader.log
 ```
 
 Pour désinstaller à distance :
@@ -110,7 +117,7 @@ Pour désinstaller à distance :
 
 Les logs sont stockés dans :
 ```
-/var/tmp/macos_installer_client.log
+/var/log/macos_downloader.log
 ```
 
 ## Configuration
@@ -119,13 +126,13 @@ Le script utilise les paramètres suivants (modifiables dans le script) :
 
 - `SERVER_URL` : URL du serveur de téléchargement
 - `TEMP_DIR` : Répertoire temporaire pour les téléchargements
-- `LOG_FILE` : Emplacement du fichier de log
+- `LOG_FILE` : Emplacement du fichier de log (`/var/log/macos_downloader.log`)
 
 ## Dépannage
 
 Si vous rencontrez des problèmes :
 
-1. Vérifiez les logs dans `/var/tmp/macos_installer_client.log`
+1. Vérifiez les logs dans `/var/log/macos_downloader.log`
 2. Assurez-vous d'avoir les droits administrateur
 3. Vérifiez votre connexion Internet
 4. Assurez-vous d'avoir suffisamment d'espace disque (20 Go minimum)
